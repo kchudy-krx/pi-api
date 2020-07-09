@@ -23,7 +23,7 @@ public class DeviceLog {
     @Column(name = Tables.DEVICELOG_COLUMN_PREFIX + "value", nullable = false, updatable = false)
     private Double value;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = Tables.DEVICE_COLUMN_PREFIX + "id", nullable = false, updatable = false)
     private Device device;
 

@@ -8,7 +8,7 @@ import java.util.function.Function;
 public class DeviceLogToDeviceLogDto implements Function<DeviceLog, DeviceLogDto> {
     @Override
     public DeviceLogDto apply(DeviceLog deviceLog) {
-        return new DeviceLogDto(deviceLog.getValue(),deviceLog.getSampledAt());
+        return new DeviceLogDto(deviceLog.getValue(), deviceLog.getSampledAt());
 
     }
 }

@@ -27,12 +27,13 @@ public class DeviceLogController {
     @PostMapping("/{id}")
     public void saveDeviceLog(@PathVariable("id") UUID deviceId, @RequestBody @Valid DeviceLogDto deviceLogDto) {
 
-        deviceLogService.add(deviceId,deviceLogDto);
+        deviceLogService.add(deviceId, deviceLogDto);
 
     }
+
     @GetMapping("/{id}")
     public List<DeviceLogDto> findByDevice(@PathVariable("id") UUID deviceId, @RequestParam(required = true) Integer from, @RequestParam(required = true) Integer size) {
-        return deviceLogService.findByDeviceId(deviceId, PageRequest.of(from,size));
+        return deviceLogService.findByDeviceId(deviceId, PageRequest.of(from, size));
     }
 
 }

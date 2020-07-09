@@ -12,12 +12,12 @@ import java.util.UUID;
 public class DeviceService {
 
 
+    private DeviceRepository deviceRepository;
+
     @Autowired
     public DeviceService(DeviceRepository deviceRepository) {
         this.deviceRepository = deviceRepository;
     }
-
-    private DeviceRepository deviceRepository;
 
     public List<Device> findByAccount(UUID accountId) {
 

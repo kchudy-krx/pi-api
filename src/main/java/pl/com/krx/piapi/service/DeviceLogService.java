@@ -45,8 +45,26 @@ public class DeviceLogService {
 
     public List<DeviceLogDto> findByDeviceId(UUID deviceId, Pageable pageable) {
 
-        return deviceLogRepository.findByDevice_IdOrderBySampledAtDesc(deviceId,pageable).stream().map(deviceLogDeviceLogDto).collect(Collectors.toList());
+        return deviceLogRepository.findByDevice_IdOrderBySampledAtDesc(deviceId, pageable)
+                .stream()
+                .map(deviceLogDeviceLogDto)
+                .collect(Collectors.toList());
 
+    }
+
+    public Optional<DeviceLog> findByDeviceId(UUID deviceId) {
+        return deviceLogRepository.findFirstByDevice_IdOrderBySampledAtDesc(deviceId);
+    }
+
+    public Optional<LocalDateTime> findLatestMeasurementDate() {
+        return deviceLogRepository.findFirstByOrderBySampledAtDesc().map(DeviceLog::getSampledAt);
+    }
+
+    public List<DeviceLogDto> findbyLastTwoDays(UUID deviceId) {
+        return deviceLogRepository.findBySampledAtAfterAndDevice_IdOrderBySampledAtAsc(LocalDateTime.now().minusDays(2), deviceId)
+                .stream()
+                .map(deviceLogDeviceLogDto)
+                .collect(Collectors.toList());
     }
 
 }

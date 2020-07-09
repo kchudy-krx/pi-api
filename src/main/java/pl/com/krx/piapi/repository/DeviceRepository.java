@@ -9,5 +9,4 @@ import java.util.UUID;
 public interface DeviceRepository extends CrudRepository<Device, UUID> {
 
     List<Device> findByAccount_Id(UUID id);
-
 }

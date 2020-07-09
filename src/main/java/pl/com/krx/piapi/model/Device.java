@@ -25,7 +25,7 @@ public class Device {
     @Column(name = Tables.DEVICE_COLUMN_PREFIX + "measure_type", nullable = false)
     private String measureType;
 
-    @JoinColumn(name = Tables.ACCOUNT_COLUMN_PREFIX + "id",nullable = false)
+    @JoinColumn(name = Tables.ACCOUNT_COLUMN_PREFIX + "id", nullable = false)
     @ManyToOne
     private Account account;
 
